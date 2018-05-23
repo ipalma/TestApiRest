@@ -70,7 +70,23 @@ namespace TestApiRest.ViewModels
                     Name = model.ProductModel.Name,
                     CatalogDescription = model.ProductModel.CatalogDescription,
                     rowguid = model.ProductModel.rowguid,
-                    ModifiedDate = model.ProductModel.ModifiedDate
+                    ModifiedDate = model.ProductModel.ModifiedDate,
+                    ProductModelProductDescription = model.ProductModel.ProductModelProductDescription.Select(x => new ProductModelProductDescription()
+                    {
+                        ProductModelID = x.ProductModelID,
+                        ProductDescriptionID = x.ProductDescriptionID,
+                        ProductDescription = new ProductDescription() {
+                            ProductDescriptionID = x.ProductDescription.ProductDescriptionID,
+                            Description = x.ProductDescription.Description,
+                            rowguid = x.ProductDescription.rowguid,
+                            ModifiedDate = x.ProductDescription.ModifiedDate
+                        },
+                        Culture = x.Culture,
+                        rowguid = x.rowguid,
+                        ModifiedDate = x.ModifiedDate
+
+                    }).ToList()
+                    
                 };
                 ;
                 SalesOrderDetail = model.SalesOrderDetail.Select(x => new SalesOrderDetail()

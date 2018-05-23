@@ -28,5 +28,10 @@ namespace TestApiRest.Controllers
         {
             return _productModelProductDescription.Get(id);
         }
+
+        public ProductModelProductDescriptionViewModel GetProductModelProductDescriptionByProductModelID(int id)
+        {
+            return _productModelProductDescription.Get(x => x.ProductModelID == id).FirstOrDefault();
+        }
     }
 }

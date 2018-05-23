@@ -71,6 +71,8 @@ namespace TestApiRest.ViewModels
             {
                 ProductModelID = ProductModelID,
                 ProductDescriptionID = ProductDescriptionID,
+                ProductDescription = ProductDescription,
+                ProductModel = ProductModel,
                 Culture = Culture,
                 rowguid = rowguid,
                 ModifiedDate = ModifiedDate

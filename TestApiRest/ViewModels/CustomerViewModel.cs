@@ -57,7 +57,19 @@ namespace TestApiRest.ViewModels
                     AddressID = x.AddressID,
                     AddressType = x.AddressType,
                     rowguid = x.rowguid,
-                    ModifiedDate = x.ModifiedDate
+                    ModifiedDate = x.ModifiedDate,
+                    Address = new Address()
+                    {
+                        AddressID = x.Address.AddressID,
+                        AddressLine1 = x.Address.AddressLine1,
+                        AddressLine2 = x.Address.AddressLine2,
+                        City = x.Address.City,
+                        StateProvince = x.Address.StateProvince,
+                        CountryRegion = x.Address.CountryRegion,
+                        PostalCode = x.Address.PostalCode,
+                        rowguid = x.Address.rowguid,
+                        ModifiedDate = x.Address.ModifiedDate
+                    }
                 }).ToList();
 
                 SalesOrderHeader = model.SalesOrderHeader.Select(x => new Models.SalesOrderHeader()

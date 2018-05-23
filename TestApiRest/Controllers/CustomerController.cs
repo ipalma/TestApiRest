@@ -26,7 +26,7 @@ namespace TestApiRest.Controllers
         }
 
         [HttpGet]
-        public CustomerViewModel GetCustomerById(int? id)
+        public CustomerViewModel GetCustomer(int? id)
         {
             return _customer.Get(id);
         }
