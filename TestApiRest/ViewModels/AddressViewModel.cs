@@ -20,11 +20,11 @@ namespace TestApiRest.ViewModels
         public System.Guid rowguid { get; set; }
         public System.DateTime ModifiedDate { get; set; }
 
-        public virtual ICollection<CustomerAddress> CustomerAddress { get; set; }
+        public virtual ICollection<CustomerAddressViewModel> CustomerAddress { get; set; }
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeader { get; set; }
+        public virtual ICollection<SalesOrderHeaderViewModel> SalesOrderHeader { get; set; }
 
-        public virtual ICollection<SalesOrderHeader> SalesOrderHeader1 { get; set; }
+        public virtual ICollection<SalesOrderHeaderViewModel> SalesOrderHeader1 { get; set; }
         #endregion Properties
 
         #region IViewModel<Address> Methods
@@ -41,7 +41,7 @@ namespace TestApiRest.ViewModels
             ModifiedDate = model.ModifiedDate;
             try
             {
-                CustomerAddress = model.CustomerAddress.Select(x => new CustomerAddress()
+                CustomerAddress = model.CustomerAddress.Select(x => new CustomerAddressViewModel()
                 {
                     CustomerID = x.CustomerID,
                     AddressID = x.AddressID,
@@ -52,7 +52,7 @@ namespace TestApiRest.ViewModels
 
                 }).ToList();
 
-                SalesOrderHeader = model.SalesOrderHeader.Select(x => new Models.SalesOrderHeader()
+                SalesOrderHeader = model.SalesOrderHeader.Select(x => new SalesOrderHeaderViewModel()
                 {
                     SalesOrderID = x.SalesOrderID,
                     RevisionNumber = x.RevisionNumber,
@@ -80,8 +80,6 @@ namespace TestApiRest.ViewModels
             }
             catch(Exception ex)
             {
-                CustomerAddress = new HashSet<CustomerAddress>();
-                SalesOrderHeader = new HashSet<SalesOrderHeader>();
             }
 
 
